@@ -1,26 +1,28 @@
 <template>
-  <div class="pa4">
-    {{ counter }}
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
+  <div>
+   <div class="pa3 pa5-ns"> 
+      <h1 class="f4 bold center mw6">Todos</h1>      
+      <ul class="list pl0 measure center">
+        <li v-for="todo of todos" class="lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30" >
+          {{ todo.task }}  
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   computed: {
     ...mapState({
-      counter: state => state.counter
+      todos: state => state.todos
     })
   },
 
   methods: {
-    ...mapMutations([
-      'increment',
-      'decrement'
-    ])
+
   }
 }
 </script>
