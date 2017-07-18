@@ -1,7 +1,7 @@
 <template>
   <div>
    <nav>
-      <nuxt-link to="/completed">Completed</nuxt-link>
+      <nuxt-link to="/">Home</nuxt-link>
    </nav>
    <div class="pa3 pa5-ns"> 
       <h1 class="f4 bold center mw6">Todos</h1>      
