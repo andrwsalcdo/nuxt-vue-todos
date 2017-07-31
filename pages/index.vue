@@ -11,6 +11,7 @@
         <ul class="list pl0 measure center">
           <li v-for="todo of todos" class="flex items-center lh-copy pv3 ba bl-0 bt-0 br-0 b--dotted b--black-30" >
             <span v-bind:class="{strike: todo.complete}" class="flex-auto"> {{todo.id}} {{ todo.task }} </span>
+            <button @click="toggle(todo)"><img src="https://icon.now.sh/check" alt=""></button>                          
             <button @click="remove(todo)"><img src="https://icon.now.sh/trash" alt=""></button>  
           </li>
         </ul>
@@ -40,7 +41,8 @@ export default {
   methods: {
     ...mapActions([
       'add', 
-      'remove'
+      'remove',
+      'toggle'
     ])
   }
 }
