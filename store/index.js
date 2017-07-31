@@ -11,6 +11,10 @@ export const mutations = {
   add (state, todo) {
     // previous todos, new todo
     state.todos = [...state.todos, todo]
+  }, 
+  remove (state, todo) {
+    // filter for deleted todo
+    state.todos = state.todos.filter(t => t.id != todo.id)
   }
 }
 
@@ -20,5 +24,10 @@ export const actions = {
       {task, complete: false})
 
     commit('add', res.data)
+  }, 
+  async remove ({commit}, todo) {
+    const res = await axios.delete(`https://api-todos.now.sh/todos/${todo.id}`)
+
+    commit('remove', todo)
   }
 }
