@@ -1,5 +1,10 @@
 <template>
   <div>
+
+    <form @submit.prevent="add(task)">
+      <input v-model="task" type="text">
+    </form>
+
     <div class="pa3 pa5-ns"> 
         <h1 class="f4 bold center mw6">Todos</h1>      
         <ul class="list pl0 measure center">
@@ -12,11 +17,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { init } from './sharedData'
 
 export default {
   fetch: init,
+
+  data () {
+    return {
+      task: 'some task'
+    }
+  },
 
   computed: {
     ...mapState({
@@ -25,7 +36,9 @@ export default {
   },
 
   methods: {
-
+    ...mapActions([
+      'add'
+    ])
   }
 }
 </script>
